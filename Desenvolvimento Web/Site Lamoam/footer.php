@@ -7,7 +7,7 @@
             <p></br>Esta não é uma página oficial da Unicamp, seu conteúdo
               não foi examinado ou editado por esta instituição. A responsabilidade por seu conteúdo é
               exclusivamente do LAMOAM.</p>
-            <p>Copyright <a href="index.html">Laboratório Lamoam</a> &copy; 2021 </br> Desenvolvido por  <a href="https://www.linkedin.com/in/julio-cezar-oliveira-de-simone-25296417b/" target="_blank">Julio De Simone</a></p>
+            <p>Copyright <a href="https://lamoam.epizy.com">Laboratório LAMOAM</a> &copy; 2022 </br> Desenvolvido por  <a href="https://www.linkedin.com/in/julio-cezar-oliveira-de-simone-25296417b/" target="_blank">Julio De Simone</a> e <a href="https://www.linkedin.com/in/gabrielpaiao/" target="_blank">Gabriel Paião</a></p>
           </div>
       </div>
     </div>

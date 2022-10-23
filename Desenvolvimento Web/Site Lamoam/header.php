@@ -10,6 +10,8 @@
   <!-- Estilos -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" media="screen and (max-width: 500px)" href="css/responsive_mobile.css">
+  <link rel="stylesheet" media="screen and (max-width: 1015px)" href="css/responsive_tablet.css">
   <!-- Scripts (jQuery não pode ser o slim que vem do Boostrap) -->
   <script
   src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -24,49 +26,47 @@
   <!-- Parallax -->
   <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
   <?php
-  $teste = inicia_contadores();
-  //print_r($teste);
-  echo $teste;
+  $contadores = inicia_contadores();
+  echo $contadores;
   ?>
 </head>
 <body>
   <header>
-    <div class="container" id="nav-container">
+    <div class="container-fluid" id="nav-container">
 
       <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-        <script>
-            var href = 'http://localhost/sitelamoam';
-            document.write('<a class="navbar-brand" href="' + href + '">');
-            document.write('<img id="logo" src="img/hdcagency_logo.svg" alt="hDC Agency">');
-            document.write('</a>');
-        </script>
-        <!-- <a class="navbar-brand" href="#">
-          <img id="logo" src="img/hdcagency_logo.svg" alt="hDC Agency">
-        </a> -->
+          <a class="navbar-brand" href="https://lamoam.epizy.com/">
+            <picture>
+              <source media='(max-width: 1015px)' srcset='img/LOGOS_RESPONSIVE3.png'>
+              <source media='(min-width: 1016px)' srcset='img/hdcagency_logo.svg'>
+              <img id="logo" src="img/hdcagency_logo.svg" alt="hDC Agency">
+            </picture>
+          </a>
+
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
-
         <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
           <div class="navbar-nav">
-            <script>
-            var href = '';
-            if(window.location.href == 'http://localhost/sitelamoam/?p=alunos' || window.location.href == 'http://localhost/sitelamoam/?p=egressos'){
-              href = '?param='
-            } else {
-              href = '#?param=';
-            }
-            document.write('<a class="nav-item nav-link" id="home-menu" href="' + href + "home" + '">Início</a>');
-            document.write('<a class="nav-item nav-link" id="about-menu" href="' + href + "about" + '">O Lamoam</a>');
-            document.write('<a class="nav-item nav-link" id="services-menu" href="' + href + "services" + '">Áreas de Pesquisa</a>');
-            document.write('<a class="nav-item nav-link" id="team-menu" href="' + href + "team" + '">Professores</a>');
-            document.write('<a class="nav-item nav-link" id="prod-menu" href="' + href + "prod" + '">Orientações</a>');
-            document.write('<a class="nav-item nav-link" id="contact-menu" href="' + href + "contact" + '">Onde Estamos</a>');
-            </script>
-          </div>
+            <?php
+              (isset($_GET['p'])) ? $pagina = $_GET['p'] : $pagina = 'home';
+              if (file_exists('page_'.$pagina.'.php') && $pagina == 'alunos' || $pagina == 'egressos'):
+                $href = '?param=';
+              else:
+                $href = '#?param=';
+              endif;
 
+              echo "<a class='nav-item nav-link' id='home-menu' href='".$href."home'>Início</a>";
+              echo "<a class='nav-item nav-link' id='about-menu' href='".$href."about'>O LAMOAM</a>";
+              echo "<a class='nav-item nav-link' id='services-menu' href='".$href."services'>Áreas de Pesquisa</a>";
+              echo "<a class='nav-item nav-link' id='team-menu' href='".$href."team'>Professores</a>";
+              echo "<a class='nav-item nav-link' id='prod-menu' href='".$href."prod'>Orientações</a>";
+              echo "<a class='nav-item nav-link' id='contact-menu' href='".$href."contact'>Onde Estamos</a>";
+            ?>
+          </div>
         </div>
+
         <a class="nav-item nav-link" href="https://www.unicamp.br/unicamp/" target="_blank"><img id="LogoU" src="img/UNIC_logo.png" alt="Unicamp"></a>
       </nav>
     </div>

@@ -25,7 +25,8 @@ function lerArtigos($area){
 			'Autores' => $line[2],
 			'Titulo' => $line[3],
 			'Local' => $line[4],
-			'Link' => $line[5]
+			'Ano' => $line[5],
+			'Link' => $line[6]
 		];
 	}
 
@@ -34,6 +35,9 @@ function lerArtigos($area){
 	for($i=0; $i<count($sobre); $i++){
 		$artigosFiltered[$i] = $artigos[$sobre[$i]];
 	}
+
+	$ano  = array_column($artigosFiltered, 'Ano');
+	array_multisort($ano, SORT_DESC, $artigosFiltered);
 
 	return ($artigosFiltered);
 	fclose($handle);
@@ -144,13 +148,13 @@ function gera_titulos(){
 	(isset($_GET['p'])) ? $pagina = $_GET['p'] : $pagina = 'home';
 	switch($pagina):
 		case 'alunos':
-			$titulo = 'Alunos - Laboratório Lamoam';
+			$titulo = 'Alunos - Laboratório LAMOAM';
 			break;
 		case 'egressos':
-			$titulo = 'Egressos - Laboratório Lamoam';
+			$titulo = 'Egressos - Laboratório LAMOAM';
 			break;
 		default:
-			$titulo = 'Laboratório Lamoam';
+			$titulo = 'Laboratório LAMOAM';
 			break;
 	endswitch;
 	return $titulo;
