@@ -1,0 +1,131 @@
+  
+  /*----------------------------------- GERAL -----------------------------------*/
+  .container {
+    padding: 20px 0;
+  }
+
+  /*----------------------------------- SLIDER -----------------------------------*/
+  #mainSlider .carousel-inner, #mainSlider .carousel-item {
+    height: auto;
+  }
+
+  #mainSlider .carousel-caption h2 {
+    font-size: 36px;
+  }
+
+  .carousel-caption {
+    left: 10%;
+    right: 10%;
+  }
+
+  /*------------------------------- NAVIGATION-BAR -------------------------------*/
+  #logo {
+    width: 250px;
+  }
+
+  #LogoU {
+    display: none;
+  }
+
+  .navbar-toggler {
+    position: absolute;
+    right: 0;
+    margin-right: 16px;
+  }
+
+  /*----------------------------------- ABOUT -----------------------------------*/
+  #about-area img {
+    margin-top: 100px;
+  }
+
+  /*----------------------------------- TEAM -----------------------------------*/
+
+  /*#team-area .col-md-4 {
+    width: 50%;
+    margin-bottom: 15px;
+    padding: 7px;
+    position: relative;
+    margin: auto;
+    text-align: center;
+  }*/
+
+  .card-title {
+    font-size: 14px;
+  }
+
+  .card-text {
+    font-size: 12px;
+  }
+
+  #team-area .team-img {
+    width: 40px;
+  }
+
+  #team-area h5 {
+    font-size: 20px;
+  }
+
+  #team-area p {
+    font-size: 16px;
+  }
+
+  #team-area .card-body {
+    padding: 10px;
+  }
+
+  /*----------------------------------- LOADING -----------------------------------*/
+  .circle-box div {
+    padding: 0 10px;
+  }
+
+  #data-area p {
+    font-size: 16px;
+  }
+  
+  #ver-alunos-btn, #ver-egressos-btn {
+    position: relative;
+    display:  none;
+    margin: auto;
+    text-align: center;
+  }
+
+  /*-------------------------- FILTER (ALUNOS E EGRESSOS) --------------------------*/
+  #alunos-area .main-title {
+    margin-bottom: 40px;
+  }
+  #alunos-area .filter-alunos-btn {
+    color: #444;
+    border: 1px solid #444;
+    background-color: transparent;
+    text-transform: none;
+    margin: 0 5px;
+    margin-bottom: 10px;
+    min-width: 40px;
+    width: auto;
+    height: 35px;
+    line-height: 25px;
+    padding: 0 10px;
+    font-size: 10px;
+  }
+
+  #alunos-area .container3 {
+    margin: 70px 0px 0px 0px;
+    padding: 10px;
+  }
+
+  #filter-alunos-btn-box {
+    margin-bottom: 20px;
+  }
+
+  .project-alunos-box {
+    margin-bottom: 35px;
+  }
+
+  /*-------------------------- PROJETOS E FINANCIAMENTO --------------------------*/
+
+  #services-area img{
+    position: relative;
+    width: 100%;
+  }
+
+}
