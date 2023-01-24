@@ -1,16 +1,154 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@700&family=Open+Sans:wght@300;400&display=swap');
 
-
 * {
     padding: 0;
     margin: 0;
+    --main-color: #565656;
+    --secondary-color: #E7C002;
     box-sizing: border-box;
+}
+
+.container {
+    padding: 50px 0;
 }
 
 body {
     margin: 0px;
+    font-family: 'Familjen Grotesk', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
+
+header, .navbar {
+    background-color: #565656;
+}
+
+.navbar-brand {
+    padding: 5px;
+    color: #FFF;
+}
+
+.navbar-brand #navbar-logo{
+    width: 150px;
+}
+
+.navbar-brand:hover {
+    color: #FFF;
+}
+
+.navbar-nav .nav-link {
+    color: #FFF;
+}
+
+.navbar-nav .nav-link.active {
+    color: #FFF;
+}
+
+.nav-link:hover {
+    color: #FFF;
+}
+
+.navbar-nav .btn {
+    background-color: var(--secondary-color);
+}
+
+#admin {
+    color: black;
+    border: 0;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding: 0 .8rem;
+}
+
+#mainSlider .carousel-inner, #mainSlider .carousel-item {
+    height: 90vh;
+}
+
+#mainSlider .carousel-caption {
+    top: 30%;
+}
+
+#mainSlider img { 
+    filter: brightness(50%);
+}
+
+#mainSlider .carousel-caption h2 {
+    font-size: 50px;
+    color: white;
+}
+
+.carousel-indicators .active {
+    background-color: var(--main-color);
+}
+
+.main-title {
+    color: var(--main-color);
+    margin: 0 0 65px 0;
+    font-size: 40px;
+    text-align: center;
+}
+
+.main-title::after {
+    content: "";
+    border-top: 2px solid var(--main-color);
+    width: 15%;
+    position: absolute;
+    margin-top: 60px;
+    left: 42.5%;
+}
+
+.about-title {
+    font-size: 17px;
+    color: var(--main-color);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#about-area img {
+    height: 450px;
+}
+
+#about-area .about-text {
+    text-align: justify;
+}
+
+#about-area .about-text p {
+    width: 450px;
+}
+
+#bg-contact-title {
+    background-color: var(--secondary-color);
+    padding: 10px;
+}
+
+.contact-title {
+    color: var(--main-color);
+    font-size: 40px;
+}
+
+.contact-subtitle {
+    color: var(--main-color);
+}
+
+#contact-card {
+    background-color: white;
+}
+
+#contact-content {
+    background-image: url("background.png");
+}
+
+#contact-card i {
+    color: var(--secondary-color);
+    font-size: 60px;
+    width: 60px;
+}
+
+#card-text {
+    margin: 0;
+}
+
 
 .fundo {
     width: 100vw;
