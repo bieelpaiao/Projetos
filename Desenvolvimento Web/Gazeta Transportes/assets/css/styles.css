@@ -139,16 +139,74 @@ header, .navbar {
     background-image: url("background.png");
 }
 
-#contact-card i {
+#contact-card i, #contact-medias i {
     color: var(--secondary-color);
     font-size: 60px;
     width: 60px;
+}
+
+#contact-content a {
+    color: var(--main-color);
+    text-decoration: none;
 }
 
 #card-text {
     margin: 0;
 }
 
+#social-media {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+}
+
+.contact-form-bg {
+    background-color: var(--secondary-color);
+    height: 100%;
+}
+
+#inputMessage {
+    height: 100px;
+}
+
+.card-img {
+    width: 250px;
+    height: 346px;
+}
+
+.btn-card, .btn-card:hover {
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+}
+
+#copy-area {
+    background-color: var(--main-color);
+    color: white;
+}
+
+  #copy-area .container {
+    padding: 10px 0;
+    text-align: center;
+}
+
+  #copy-area .container p {
+    margin-bottom: 0;
+}
+
+  #copy-area .container a {
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+  #copy-area .container a:hover {
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+  #logo-copy {
+    margin: 15px;
+    width: 180px;
+}
 
 .fundo {
     width: 100vw;

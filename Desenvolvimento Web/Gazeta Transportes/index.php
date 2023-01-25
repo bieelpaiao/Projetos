@@ -120,6 +120,96 @@
                 </div>
             </div>
 
+            <div id="excursion-area">
+                <div class="container text-center">
+                    <div class="row align-items-center">
+                        <div class="col-12">
+                            <h3 class="main-title">Excursões</h3>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-2">
+                                <img src="./assets/img/excursao_pp.png" class="card-img-top card-img" alt="Excursão">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Rodeio de Presidente Prudente</h5>
+                                </div>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Dias: 06/09, 07/09, 09/09, 13/09</li>
+                                    <li class="list-group-item">Valor: R$50,00 cada dia</li>
+                                    <li class="list-group-item">Saída de: Quatá, João Ramalho e Rancharia</li>
+                                </ul>
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-card">Me inscrever!</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-2">
+                                <img src="./assets/img/excursao_pp.png" class="card-img-top card-img" alt="Excursão">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Rodeio de Presidente Prudente</h5>
+                                </div>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Dias: 06/09, 07/09, 09/09, 13/09</li>
+                                    <li class="list-group-item">Valor: R$50,00 cada dia</li>
+                                    <li class="list-group-item">Saída de: Quatá, João Ramalho e Rancharia</li>
+                                </ul>
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-card">Me inscrever!</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-2">
+                                <img src="./assets/img/excursao_pp.png" class="card-img-top card-img" alt="Excursão">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Rodeio de Presidente Prudente</h5>
+                                </div>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Dias: 06/09, 07/09, 09/09, 13/09</li>
+                                    <li class="list-group-item">Valor: R$50,00 cada dia</li>
+                                    <li class="list-group-item">Saída de: Quatá, João Ramalho e Rancharia</li>
+                                </ul>
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-card">Me inscrever!</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="card p-2">
+                                <img src="./assets/img/excursao_pp.png" class="card-img-top card-img" alt="Excursão">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Rodeio de Presidente Prudente</h5>
+                                </div>
+
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">Dias: 06/09, 07/09, 09/09, 13/09</li>
+                                    <li class="list-group-item">Valor: R$50,00 cada dia</li>
+                                    <li class="list-group-item">Saída de: Quatá, João Ramalho e Rancharia</li>
+                                </ul>
+
+                                <div class="card-body">
+                                    <a href="#" class="btn btn-card">Me inscrever!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div id="contact-title">
                 <div class="container-fluid text-center">
                     <div class="row align-items-center">
@@ -134,14 +224,14 @@
             <div id="contact-content">
                 <div class="container-fluid text-center">
                     <div class="row align-items-center ps-5 pe-5">
-                        <div class="col-md-4 p-2">
+                        <div class="col-md-6 p-5">
                             <a href="https://api.whatsapp.com/send/?phone=5518996128035&text=Ol%C3%A1!&type=phone_number&app_absent=0" target="blank">
                                 <div class="row align-items-center rounded-3 p-2" id="contact-card">
-                                    <div class="col-2">
+                                    <div class="col-md-2">
                                         <i class="fa-brands fa-whatsapp"></i>
                                     </div>
 
-                                    <div class="col-10">
+                                    <div class="col-md-10">
                                         <p id="card-text">Clique aqui e nos envie uma mensagem via WhatsApp!</p>
                                     </div>
                                 </div>
@@ -149,22 +239,51 @@
 
                             <a href="mailto:kleber@infoworld.net.br" target="blank">
                                 <div class="row align-items-center rounded-3 p-2 mt-3" id="contact-card">
-                                    <div class="col-2">
+                                    <div class="col-md-2">
                                         <i class="fa-regular fa-envelope"></i>
                                     </div>
 
-                                    <div class="col-10">
-                                        <p id="card-text">Clique aqui e nos envie uma mensagem via WhatsApp!</p>
+                                    <div class="col-md-10">
+                                        <p id="card-text">Clique aqui e nos envie uma mensagem via e-mail!</p>
                                     </div>
                                 </div>
                             </a>
 
-                            <div>
-                                
+                            <div class="text-center my-3" id="social-media">
+                                <p>Siga-nos em nossas redes sociais</p>
+                            </div>
+
+                            <div class="row align-items-center rounded-3 p-2 mt-3" id="contact-medias">
+                                <div class="col">
+                                    <a href="" target="blank"> <i class="fa-brands fa-facebook mx-3"></i> </a>
+                                    <a href="" target="blank"> <i class="fa-brands fa-instagram mx-3"></i> </a>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-md-8 about-text d-flex justify-content-center">
+                        <div class="col-md-6 m-0 px-5">
+                            <div class="contact-form-bg p-3">
+                                <form class="row g-3">
+                                    <div class="col-md-12 text-start">
+                                        <label for="inputName" class="form-label">Nome Completo</label>
+                                        <input type="text" class="form-control" id="inputName">
+                                    </div>
+
+                                    <div class="col-md-12 text-start">
+                                        <label for="inputEmail" class="form-label">E-mail</label>
+                                        <input type="text" class="form-control" id="inputEmail">
+                                    </div>
+
+                                    <div class="col-md-12 text-start">
+                                        <label for="inputMessage" class="form-label">Mensagem</label>
+                                        <textarea class="form-control" id="inputMessage"></textarea>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-primary">ENVIAR</button>
+                                    </div>
+                                </form>  
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -184,6 +303,19 @@
                 </div>
             </div>
         </main>
+
+        <footer>
+            <div id="copy-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <img id="logo-copy" src="./assets/img/logo_branca.png" alt="LAMOAM">
+                            <p>Copyright <a href="">Gazeta Transportes</a> &copy; 2023 </br> Desenvolvido por  <a href="https://www.linkedin.com/in/gabrielpaiao/" target="_blank">Gabriel Paião</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     </body>
 </html>
