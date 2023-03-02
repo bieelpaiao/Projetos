@@ -11,8 +11,13 @@
     function bs4wp_guideline_data_field_cb( $post ) {
         $bs4wp_meta_val_status = get_post_meta( $post->ID, 'bs4wp_guideline_status', true );
         $bs4wp_meta_val_type = get_post_meta( $post->ID, 'bs4wp_guideline_type', true );
-        $bs4wp_meta_val_project = get_post_meta( $post->ID, 'bs4wp_guideline_project', true );
+        $bs4wp_meta_val_project_title = get_post_meta( $post->ID, 'bs4wp_guideline_project_title', true );
+        $bs4wp_meta_val_start = get_post_meta( $post->ID, 'bs4wp_guideline_start', true );
+        $bs4wp_meta_val_conclusion = get_post_meta( $post->ID, 'bs4wp_guideline_conclusion', true );
         $bs4wp_meta_val_course = get_post_meta( $post->ID, 'bs4wp_guideline_course', true );
+        $bs4wp_meta_val_instituition = get_post_meta( $post->ID, 'bs4wp_guideline_instituition', true );
+        $bs4wp_meta_val_advisor = get_post_meta( $post->ID, 'bs4wp_guideline_advisor', true );
+        $bs4wp_meta_val_co_advisor = get_post_meta( $post->ID, 'bs4wp_guideline_co-advisor', true );
         ?>
 
         <div class="bs4wp_form">
@@ -26,10 +31,6 @@
 
                 .bs4wp_field {
                     display: contents;
-                }
-
-                .bs4wp_field label{
-                    text-transform: capitalize;
                 }
             </style>
 
@@ -53,13 +54,38 @@
             </div>
 
             <div class="bs4wp_field">
-                <label for="guideline_project">Projeto: </label>
-                <input type="text" name="bs4wp_guideline_project" id="guideline_project" value="<?php echo esc_attr( $bs4wp_meta_val_project ) ?>" required>
+                <label for="guideline_project_title">Título do Projeto: </label>
+                <input type="text" name="bs4wp_guideline_project_title" id="guideline_project_title" value="<?php echo esc_attr( $bs4wp_meta_val_project_title ) ?>" required>
+            </div>
+
+            <div class="bs4wp_field">
+                <label for="guideline_start">Início: </label>
+                <input type="number" name="bs4wp_guideline_start" id="guideline_start" value="<?php echo esc_attr( $bs4wp_meta_val_start ) ?>" required>
+            </div>
+
+            <div class="bs4wp_field">
+                <label for="guideline_conclusion">Conclusão: </label>
+                <input type="number" name="bs4wp_guideline_conclusion" id="guideline_conclusion" value="<?php echo esc_attr( $bs4wp_meta_val_conclusion ) ?>">
             </div>
 
             <div class="bs4wp_field">
                 <label for="guideline_course">Curso: </label>
                 <input type="text" name="bs4wp_guideline_course" id="guideline_course" value="<?php echo esc_attr( $bs4wp_meta_val_course ) ?>" required>
+            </div>
+
+            <div class="bs4wp_field">
+                <label for="guideline_instituition">Instituição(es): </label>
+                <input type="text" name="bs4wp_guideline_instituition" id="guideline_instituition" value="<?php echo esc_attr( $bs4wp_meta_val_instituition ) ?>" required>
+            </div>
+
+            <div class="bs4wp_field">
+                <label for="guideline_advisor">Orientador: </label>
+                <input type="text" name="bs4wp_guideline_advisor" id="guideline_advisor" value="<?php echo esc_attr( $bs4wp_meta_val_advisor ) ?>" required>
+            </div>
+
+            <div class="bs4wp_field">
+                <label for="guideline_co-advisor">Coorientador(es): </label>
+                <input type="text" name="bs4wp_guideline_co-advisor" id="guideline_co-advisor" value="<?php echo esc_attr( $bs4wp_meta_val_co_advisor ) ?>">
             </div>
         </div>
         <?php
@@ -84,15 +110,33 @@
 
         }
 
-        if ( isset( $_POST['bs4wp_guideline_project'] ) ) {
-            update_post_meta( $post_id, 'bs4wp_guideline_project', $_POST['bs4wp_guideline_project'] );
+        if ( isset( $_POST['bs4wp_guideline_project_title'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_guideline_project_title', $_POST['bs4wp_guideline_project_title'] );
+        }
+
+        if ( isset( $_POST['bs4wp_guideline_start'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_guideline_start', $_POST['bs4wp_guideline_start'] );
+        }
+
+        if ( isset( $_POST['bs4wp_guideline_conclusion'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_guideline_conclusion', $_POST['bs4wp_guideline_conclusion'] );
         }
 
         if ( isset( $_POST['bs4wp_guideline_course'] ) ) {
             update_post_meta( $post_id, 'bs4wp_guideline_course', $_POST['bs4wp_guideline_course'] );
         }
 
+        if ( isset( $_POST['bs4wp_guideline_instituition'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_guideline_instituition', $_POST['bs4wp_guideline_instituition'] );
+        }
 
+        if ( isset( $_POST['bs4wp_guideline_advisor'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_guideline_advisor', $_POST['bs4wp_guideline_advisor'] );
+        }
+
+        if ( isset( $_POST['bs4wp_guideline_co-advisor'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_guideline_co-advisor', $_POST['bs4wp_guideline_co-advisor'] );
+        }
     } );
 
 /*---------------------- META BOX - ÁREAS DE PESQUISA ---------------------- */
@@ -274,7 +318,8 @@
 
     //Meta callback function
     function bs4wp_projects_data_field_cb( $post ) {
-        $bs4wp_meta_val_description = get_post_meta( $post->ID, 'bs4wp_project_description', true );
+        $bs4wp_meta_val_title = get_post_meta( $post->ID, 'bs4wp_project_title', true );
+        $bs4wp_meta_val_link = get_post_meta( $post->ID, 'bs4wp_project_link', true );
         ?>
 
         <div class="bs4wp_form">
@@ -296,8 +341,13 @@
             </style>
 
             <div class="bs4wp_field">
-                <label for="project_description">Descrição: </label>
-                <input type="text" name="bs4wp_project_description" id="project_description" value="<?php echo esc_attr( $bs4wp_meta_val_description ) ?>" required>
+                <label for="project_title">Título do Projeto: </label>
+                <input type="text" name="bs4wp_project_title" id="project_title" value="<?php echo esc_attr( $bs4wp_meta_val_title ) ?>" required>
+            </div>
+
+            <div class="bs4wp_field">
+                <label for="project_link">Link: </label>
+                <input type="text" name="bs4wp_project_link" id="project_link" value="<?php echo esc_attr( $bs4wp_meta_val_link ) ?>">
             </div>
         </div>
         <?php
@@ -306,8 +356,12 @@
     //save meta value with save post hook
     add_action( 'save_post', function( $post_id ) {
 
-        if ( isset( $_POST['bs4wp_project_description'] ) ) {
-            update_post_meta( $post_id, 'bs4wp_project_description', $_POST['bs4wp_project_description'] );
+        if ( isset( $_POST['bs4wp_project_title'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_project_title', $_POST['bs4wp_project_title'] );
+        }
+
+        if ( isset( $_POST['bs4wp_project_link'] ) ) {
+            update_post_meta( $post_id, 'bs4wp_project_link', $_POST['bs4wp_project_link'] );
         }
 
     } );
@@ -501,166 +555,166 @@
     } );    
 
 // Chamar a tag Title
-function bs4wp_title_tag() {
+    function bs4wp_title_tag() {
 
-    // Chamar a tag Title
-    add_theme_support('title-tag');
-}
-add_action('after_setup_theme', 'bs4wp_title_tag');
+        // Chamar a tag Title
+        add_theme_support('title-tag');
+    }
+    add_action('after_setup_theme', 'bs4wp_title_tag');
 
 // Previnir o erro na tag Title em versões antigas
-if (!function_exists('_wp_render_title_tag')) {
-    function bs4wp_render_title() {
-        ?>
-        <title><?php wp_title('|', true, 'right'); ?></title>
-        <?php
+    if (!function_exists('_wp_render_title_tag')) {
+        function bs4wp_render_title() {
+            ?>
+            <title><?php wp_title('|', true, 'right'); ?></title>
+            <?php
+        }
+        add_action('wp_head', 'bs4wp_render_title');
     }
-    add_action('wp_head', 'bs4wp_render_title');
-}
 
 // Criar o tipo de post para a seção ÁREAS DE PESQUISA
-function create_post_type_research_areas() {
+    function create_post_type_research_areas() {
 
-    register_post_type('research_areas',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Áreas de Pesquisa'),
-            'singular_name' => __('Áreas de Pesquisa')
-        ),
-        'supports' => array(
-            'title', 'thumbnail'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-images-alt2',
-        'rewrite' => array('slug' => 'research_areas'),
-    ));
-}
+        register_post_type('research_areas',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Áreas de Pesquisa'),
+                'singular_name' => __('Áreas de Pesquisa')
+            ),
+            'supports' => array(
+                'title', 'thumbnail'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-images-alt2',
+            'rewrite' => array('slug' => 'research_areas'),
+        ));
+    }
 
 // Criar o tipo de post para a seção PROJETOS
-function create_post_type_projects() {
+    function create_post_type_projects() {
 
-    register_post_type('projetos',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Projetos'),
-            'singular_name' => __('Projetos')
-        ),
-        'supports' => array(
-            'title', 'thumbnail'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-format-aside',
-        'rewrite' => array('slug' => 'projetos'),
-    ));
-}
+        register_post_type('projetos',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Projetos'),
+                'singular_name' => __('Projetos')
+            ),
+            'supports' => array(
+                'title', 'thumbnail'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-format-aside',
+            'rewrite' => array('slug' => 'projetos'),
+        ));
+    }
 
 // Criar o tipo de post para os ARTIGOS da seção ÁREAS DE PESQUISA
-function create_post_type_articles() {
+    function create_post_type_articles() {
 
-    register_post_type('artigos',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Artigos'),
-            'singular_name' => __('Artigos')
-        ),
-        'supports' => array(
-            'title'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-media-document',
-        'rewrite' => array('slug' => 'artigos'),
-    ));
-}
+        register_post_type('artigos',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Artigos'),
+                'singular_name' => __('Artigos')
+            ),
+            'supports' => array(
+                'title'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-media-document',
+            'rewrite' => array('slug' => 'artigos'),
+        ));
+    }
 
 // Criar o tipo de post para a seção ORIENTAÇÕES
-function create_post_type_guidelines() {
+    function create_post_type_guidelines() {
 
-    register_post_type('orientações',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Orientações'),
-            'singular_name' => __('Orientações')
-        ),
-        'supports' => array(
-            'title'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-businessperson',
-        'rewrite' => array('slug' => 'Orientações'),
-    ));
-}
+        register_post_type('orientações',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Orientações'),
+                'singular_name' => __('Orientações')
+            ),
+            'supports' => array(
+                'title'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-businessperson',
+            'rewrite' => array('slug' => 'Orientações'),
+        ));
+    }
 
 // Criar o tipo de post para a seção PROFESSORES
-function create_post_type_teachers() {
+    function create_post_type_teachers() {
 
-    register_post_type('professores',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Professores'),
-            'singular_name' => __('Professores')
-        ),
-        'supports' => array(
-            'title', 'thumbnail'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-id',
-        'rewrite' => array('slug' => 'Professores'),
-    ));
-}
+        register_post_type('professores',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Professores'),
+                'singular_name' => __('Professores')
+            ),
+            'supports' => array(
+                'title', 'thumbnail'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-id',
+            'rewrite' => array('slug' => 'Professores'),
+        ));
+    }
 
 // Criar o tipo de post para a seção PARCEIROS
-function create_post_type_partners() {
+    function create_post_type_partners() {
 
-    register_post_type('parceiros',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Parceiros'),
-            'singular_name' => __('Parceiros')
-        ),
-        'supports' => array(
-            'title', 'thumbnail'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-groups',
-        'rewrite' => array('slug' => 'Professores'),
-    ));
-}
+        register_post_type('parceiros',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Parceiros'),
+                'singular_name' => __('Parceiros')
+            ),
+            'supports' => array(
+                'title', 'thumbnail'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-groups',
+            'rewrite' => array('slug' => 'Professores'),
+        ));
+    }
 
 // Criar o tipo de post para a seção FINANCIAMENTO
-function create_post_type_financiers() {
+    function create_post_type_financiers() {
 
-    register_post_type('financiamento',
-    // Definir as opções
-    array(
-        'labels' => array(
-            'name' => __('Financiamento'),
-            'singular_name' => __('Financiamento')
-        ),
-        'supports' => array(
-            'title', 'thumbnail'
-        ),
-        'public' => true,
-        'has_archive' => true,
-        'menu_icon' => 'dashicons-money',
-        'rewrite' => array('slug' => 'Financiamento'),
-    ));
-}
+        register_post_type('financiamento',
+        // Definir as opções
+        array(
+            'labels' => array(
+                'name' => __('Financiamento'),
+                'singular_name' => __('Financiamento')
+            ),
+            'supports' => array(
+                'title', 'thumbnail'
+            ),
+            'public' => true,
+            'has_archive' => true,
+            'menu_icon' => 'dashicons-money',
+            'rewrite' => array('slug' => 'Financiamento'),
+        ));
+    }
 
 // Definir as miniaturas dos posts
-add_theme_support( 'post-thumbnails' );
-set_post_thumbnail_size( 1280, 720, true );
+//add_theme_support( 'post-thumbnails' );
+//set_post_thumbnail_size( 1280, 720, true );
 
 //Iniciar o tipo de post
 add_action('init', 'create_post_type_research_areas');

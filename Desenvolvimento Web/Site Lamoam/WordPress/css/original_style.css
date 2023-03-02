@@ -1,81 +1,81 @@
 /* ----------------------------------------- GERAIS ----------------------------------------- */
-body {
-  font-family: 'Roboto', sans-serif;
-}
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
 
-.row {
-  margin: 0;
-}
+  .row {
+    margin: 0;
+  }
 
-.container {
-  padding: 50px 0;
-}
+  .container {
+    padding: 50px 0;
+  }
 
-.container2 {
-  padding: 40px 40px;
-}
+  .container2 {
+    padding: 40px 40px;
+  }
 
-.container3 {
-  padding-top: 120px;
-  padding-bottom: 50px;
-  padding-left: 0;
-  padding-right: 0;
-  margin-right: 100px;
-  margin-left: 100px;
-  margin-top: 0;
-  margin-bottom: 0;
-}
+  .container3 {
+    padding-top: 120px;
+    padding-bottom: 50px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 100px;
+    margin-left: 100px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 
-p, li {
-  color: #444;
-  font-size: 14px;
-}
+  p, li {
+    color: #444;
+    font-size: 14px;
+  }
 
-a {
-  text-decoration: none;
-}
+  a {
+    text-decoration: none;
+  }
 
 /* ----------------------------------------- BARRA DE NAVEGAÇÃO ----------------------------------------- */
-header, .navbar {
-  background-image: linear-gradient(to right, rgb(41 185 251), rgb(251 69 45));
-  padding: 1rem 0.5rem;
-}
+  header, .navbar {
+    background-image: linear-gradient(to right, rgb(41 185 251), rgb(251 69 45));
+    padding: 1rem 0.5rem;
+  }
 
-#nav-container {
-  padding-top: 0;
-  padding-bottom: 0;
-}
+  #nav-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
 
-#logo {
-  width: 190px;
-}
+  #logo {
+    width: 190px;
+  }
 
-#LogoU {
-  width: 80px;
-}
+  #LogoU {
+    width: 80px;
+  }
 
-.navbar-brand {
-  padding: 0;
-  color: #FFF;
-}
+  .navbar-brand {
+    padding: 0;
+    color: #FFF;
+  }
 
-.navbar-brand:hover {
-  color: #FFF;
-}
+  .navbar-brand:hover {
+    color: #FFF;
+  }
 
-#navbar-links a {
-  color: #FFF;
-}
+  #navbar-links a {
+    color: #FFF;
+  }
 
-.navbar-expand-lg .navbar-nav .nav-link {
-  padding: 1rem .8rem;
-}
+  .navbar-expand-lg .navbar-nav .nav-link {
+    padding: 1rem .8rem;
+  }
 
-.nav-item.active {
-  border-bottom: 3px solid #FFF;
-}
+  .nav-item.active {
+    border-bottom: 3px solid #FFF;
+  }
 
-/* ----------------------------------------- SLIDER ----------------------------------------- */
+  /* ----------------------------------------- SLIDER ----------------------------------------- */
 .container-fluid {
   padding: 0;
 }
@@ -205,7 +205,18 @@ header, .navbar {
   margin-bottom: 20px;
 }
 
+.service-box .proccess-number {
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
 .service-box:hover > i, .service-box:hover > h4 {
+  color: #01367d;
+}
+
+.service-box a{
+  text-decoration: none;
   color: #01367d;
 }
 
@@ -249,7 +260,6 @@ header, .navbar {
 }
 
 #data-area {
-  background-image: url("http://localhost/lamoam-wordpress/wp-content/themes/bs4wp/img/cidadeparallax8.png");
   background-attachment: fixed;
 }
 
@@ -263,7 +273,6 @@ header, .navbar {
 /* ----------------------------------------- EQUIPE ----------------------------------------- */
 #services-area .col-md-4 {
   position: relative;
-  margin: auto;
   text-align: center;
 }
 

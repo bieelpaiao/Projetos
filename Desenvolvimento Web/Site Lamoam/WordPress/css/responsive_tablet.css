@@ -6,7 +6,7 @@
 
   /*----------------------------------- SLIDER -----------------------------------*/
   #mainSlider .carousel-inner, #mainSlider .carousel-item {
-    height: auto;
+    height: 450px;
   }
 
   #mainSlider .carousel-caption h2 {
@@ -128,4 +128,7 @@
     width: 100%;
   }
 
-}
+  .financiers-area img{
+    position: relative;
+    width: 70%;
+  }

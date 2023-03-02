@@ -15,14 +15,13 @@
               <?php endif; ?>
 
             <p></br><?php echo get_theme_mod('footer_text', 'Esta não é uma página oficial da Unicamp, seu conteúdo não foi examinado ou editado por esta instituição. A responsabilidade por seu conteúdo é exclusivamente do LAMOAM.') ?></p>
-            <?php echo get_theme_mod('footer_copyright', '<p>Copyright <a href="'. get_site_url() .'">Laboratório LAMOAM</a> &copy; '. date('Y') .'</p>') ?></p>
+            </br><?php echo get_theme_mod('footer_copyright', '<p>Copyright <a href="'. get_site_url() .'">Laboratório LAMOAM</a> &copy; '. date('Y') .'</p>') ?></p>
             <p>Desenvolvido por  <a href="https://www.linkedin.com/in/julio-cezar-oliveira-de-simone-25296417b/" target="_blank">Julio De Simone</a> e <a href="https://www.linkedin.com/in/gabrielpaiao/" target="_blank">Gabriel Paião</a></p>
           </div>
       </div>
     </div>
   </div>
 </footer>
-
     <?php wp_footer(); ?>
     
     <script src="<?php bloginfo('template_url') ?>/js/jquery.js"></script>

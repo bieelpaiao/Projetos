@@ -16,6 +16,7 @@
                 // args
                 $my_args_guidelines = array(
                   'post_type' => 'orientações',
+                  'posts_per_page' => -1
                 );
 
                 // query
@@ -31,8 +32,13 @@
                 <?php
                   $status = get_post_meta( get_the_ID(), 'bs4wp_guideline_status', true );
                   $type = get_post_meta( get_the_ID(), 'bs4wp_guideline_type', true );
-                  $project = get_post_meta( get_the_ID(), 'bs4wp_guideline_project', true );
+                  $project_title = get_post_meta( get_the_ID(), 'bs4wp_guideline_project_title', true );
+                  $start = get_post_meta( get_the_ID(), 'bs4wp_guideline_start', true );
+                  $conclusion = get_post_meta( get_the_ID(), 'bs4wp_guideline_conclusion', true );
                   $course = get_post_meta( get_the_ID(), 'bs4wp_guideline_course', true );
+                  $instituition = get_post_meta( get_the_ID(), 'bs4wp_guideline_instituition', true );
+                  $advisor = get_post_meta( get_the_ID(), 'bs4wp_guideline_advisor', true );
+                  $co_advisor = get_post_meta( get_the_ID(), 'bs4wp_guideline_co-advisor', true );
                   $title = get_the_title();
 
                   if ( strcmp($status, "Aluno") == 0 ) {
@@ -47,8 +53,16 @@
                     echo '<div class="col-md-4 project-alunos-box '.$type_in.'"'.'>';
                     echo '<i class="fas fa-user-graduate"></i>';
                     echo "<h4>".$title."</h4>";
-                    echo "<p>".$project."</p>";
-                    echo "<p>".$course."</p>";
+                    if (strlen($conclusion) == 0) {
+                      echo "<p>".$project_title.". Início: ".$start."</p>";
+                    } else {
+                      echo "<p>".$project_title.". Conclusão: ".$conclusion."</p>";
+                    }
+                    if (strlen($co_advisor) == 0) {
+                      echo "<p>".$type." (".$course.") - ".$instituition.". Orientador: ".$advisor."</p>";
+                    } else {
+                      echo "<p>".$type." (".$course.") - ".$instituition.". Orientador: ".$advisor.". Coorientador(es): ".$co_advisor."</p>";
+                    }                                      
                     echo "</div>";
                   }
                   

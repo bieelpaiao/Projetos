@@ -1,4 +1,9 @@
 $( document ).ready(function() {
+/* Navbar Toggler -----------------------------------------------------------------------------------------------*/
+//Fecha o toggler quando um item da navbar é clicado
+  $(".nav-link").on("click", function(){
+    $('.navbar-collapse').collapse('hide');
+  });
 
 /* Loading -----------------------------------------------------------------------------------------------*/
   // Progress bar

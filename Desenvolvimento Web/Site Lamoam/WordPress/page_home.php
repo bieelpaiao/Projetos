@@ -1,11 +1,32 @@
 <main>
     <div class="container-fluid">
-        <div id="mainSlider" class="carousel slide" data-bs-ride="false">
+        <div id="mainSlider" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
-                <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                <?php 
+                    // args
+                    $my_args_banner = array(
+                    'post_type' => 'research_areas',
+                    'posts_per_page' => -1
+                    );
+
+                    // query
+                    $my_query_banner = new WP_Query ( $my_args_banner );
+                ?>
+
+                <?php 
+                    $count = -1; //contador para o banner
+                    if( $my_query_banner->have_posts()) : 
+                    $c = 0;
+                    while( $my_query_banner->have_posts() ) : 
+                    $my_query_banner->the_post();
+                    $count  = $count + 1; //incrementa o contador para que cada banner tenha um número
+                ?>
+
+                <button type="button" data-bs-target="#mainSlider" data-bs-slide-to="<?php echo $count; ?>" <?php if ($count == 0) { echo "class=\"active\""; }?> aria-label="<?php echo "Slide ".$count+1; ?>"></button>
+
+                <?php endwhile; endif; ?>
+
+                <?php wp_reset_query(); ?>
             </div>
 
             <div class="carousel-inner">
@@ -19,16 +40,19 @@
                     $my_query_banner = new WP_Query ( $my_args_banner );
                 ?>
 
-                <?php if( $my_query_banner->have_posts()) : 
+                <?php
+                    $count2 = -1; //contador para o banner
+                    if( $my_query_banner->have_posts()) : 
                     $c = 0;
                     while( $my_query_banner->have_posts() ) : 
-                    $my_query_banner->the_post(); 
+                    $my_query_banner->the_post();
+                    $count2  = $count2 + 1; //incrementa o contador para que cada banner tenha um número
                 ?>
 
-                <div class="carousel-item <?php $c++; if($c == 1) { echo ' active'; } ?>">
-                    <?php the_post_thumbnail('post-thumbnail', array('class' => 'd-block w-100')) ?>
+                <div class="carousel-item <?php if ($count2 == 0) { echo "active"; }?>">
+                    <?php the_post_thumbnail('post-thumbnail', array('class' => 'd-block w-100 carousel-img')) ?>
                     <div class="carousel-caption d-md-block">
-                    <h2> <?php the_title(); ?> </h2>
+                        <h2> <?php the_title(); ?> </h2>
                     </div>
                 </div>
 
@@ -86,7 +110,7 @@
 
         <div id="services-area">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="col-12">
                         <h3 class="main-title"><?php echo get_theme_mod('research_areas_title', 'Áreas de Pesquisa') ?></h3>
                     </div>
@@ -94,7 +118,8 @@
                     <?php 
                         // args
                         $my_args_banner = array(
-                        'post_type' => 'research_areas'
+                            'post_type'      => 'research_areas',
+                            'posts_per_page' => -1
                         );
 
                         // query
@@ -111,7 +136,7 @@
                         $research_area_title = get_the_title();
                     ?>
 
-                    <div class="col-md-6 service-box" class="card-link" data-bs-toggle="modal" data-bs-target="#<?php $post_slug = get_post_field( 'post_name', get_post() );  echo $post_slug; ?>" >
+                    <div class="col-md-6 col-sm-12 service-box" class="card-link" data-bs-toggle="modal" data-bs-target="#<?php $post_slug = get_post_field( 'post_name', get_post() );  echo $post_slug; ?>" >
                         <?php echo get_post_meta( get_the_ID(), 'bs4wp_research_area_icon', true ); ?>
                         <h4> <?php the_title(); ?> </h4>
                         <p> <?php echo get_post_meta( get_the_ID(), 'bs4wp_research_area_description', true ); ?> </p>
@@ -132,6 +157,7 @@
                                             // args
                                             $my_args_articles = array(
                                                 'post_type' => 'artigos',
+                                                'posts_per_page' => -1
                                             );
 
                                             // query
@@ -157,6 +183,7 @@
                                             echo "<li>";
                                             echo $authors.".<a href='".$link."' target='blank'> ".$title."</a>".". ".$local.", ".$year.".";
                                             echo "</li>";
+                                            echo "</br>";
                                             }
                                             
                                         ?>
@@ -184,7 +211,7 @@
 
         <div id="team-area">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="col-12">
                         <h3 class="main-title"><?php echo get_theme_mod('team_title', 'Professores') ?></h3>
                     </div>
@@ -192,7 +219,8 @@
                         <?php 
                             // args
                             $my_args_teachers = array(
-                            'post_type' => 'professores'
+                            'post_type' => 'professores',
+                            'posts_per_page' => -1
                             );
 
                             // query
@@ -205,9 +233,9 @@
                             $my_query_teachers->the_post(); 
                         ?>
 
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-6 pb-4">
                         <div class="card">
-                            <?php the_post_thumbnail('post-thumbnail', array('class' => 'card-img-top')); ?>
+                            <?php the_post_thumbnail('post-thumbnail', array('class' => 'card-img-top img-fluid')); ?>
 
                             <div class="card-body">
                                 <h5 class="card-title"><?php the_title(); ?></h5>
@@ -216,12 +244,12 @@
                                 <img class="card-icon team-img" src="<?php echo get_stylesheet_directory_uri(). '/img/CONTATO.svg' ?>" alt="email" onmouseover="this.src='<?php echo get_stylesheet_directory_uri().'/img/CONTATO_AZ.svg' ?>'"
                                     onmouseout="this.src='<?php echo get_stylesheet_directory_uri(). '/img/CONTATO.svg' ?>'" data-bs-toggle="modal" data-bs-target="#<?php $post_slug = get_post_field( 'post_name', get_post() );  echo $post_slug; ?>">
 
-                                <a class="card-icon" href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_teacher_lattes', true ); ?>" target="_blank">
+                                <a href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_teacher_lattes', true ); ?>" target="_blank">
                                     <img class="card-icon team-img" src="<?php echo get_stylesheet_directory_uri(). '/img/LATTES.svg' ?>" alt="Lattes" onmouseover="this.src='<?php echo get_stylesheet_directory_uri(). '/img/LATTES_AZ.svg' ?>'"
                                     onmouseout="this.src='<?php echo get_stylesheet_directory_uri(). '/img/LATTES.svg' ?>'">
                                 </a>
 
-                                <a class="card-icon" href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_teacher_orcid', true ); ?>" target="_blank">
+                                <a href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_teacher_orcid', true ); ?>" target="_blank">
                                     <img class="card-icon team-img" src="<?php echo get_stylesheet_directory_uri(). '/img/ORCID.svg' ?>" alt="OrcID" onmouseover="this.src='<?php echo get_stylesheet_directory_uri(). '/img/ORCID_AZ.svg' ?>'"
                                     onmouseout="this.src='<?php echo get_stylesheet_directory_uri(). '/img/ORCID.svg' ?>'">
                                 </a>
@@ -279,26 +307,26 @@
                     <button class="main-loading-btn filter-loading-btn loading-active" id="todos-btn"><?php echo get_theme_mod('guidelines_all_button', 'Todas') ?></button>
                     <button class="main-loading-btn filter-loading-btn" id="alunos-btn"><?php echo get_theme_mod('guidelines_student_button', 'Em andamento') ?></button>
                     <button class="main-loading-btn filter-loading-btn" id="egressos-btn"><?php echo get_theme_mod('guidelines_egress_button', 'Concluídas') ?></button>
-                        <a href="?p=alunos"><button class="main-loading-btn filter-loading-btn" id="ver-alunos-btn"><?php echo get_theme_mod('guidelines_view_student_button', 'Ver Aluos') ?></button></a>
+                        <a href="?p=alunos"><button class="main-loading-btn filter-loading-btn" id="ver-alunos-btn"><?php echo get_theme_mod('guidelines_view_student_button', 'Ver Alunos') ?></button></a>
                         <a href="?p=egressos"><button class="main-loading-btn filter-loading-btn" id="ver-egressos-btn"><?php echo get_theme_mod('guidelines_view_egress_button', 'Ver Egressos') ?></button></a>
                     </div>
                 </div>
             </div>      
 
-            <div id="data-area">
+            <div id="data-area" style="background-image: url('<?php echo get_stylesheet_directory_uri(). '/img/cidadeparallax8.png' ?>');">
                 <div class="container4" id="load">
                     <div class="row">    
-                        <div class="col-md-4 col-xs-6 circle-box">
+                        <div class="col-md-4 col-xs-6 col-sm-12 circle-box">
                             <div id="circleA"></div>
                             <p>Teses</p>
                         </div>
                         
-                        <div class="col-md-4 col-xs-6 circle-box">
+                        <div class="col-md-4 col-xs-6 col-sm-12 circle-box">
                             <div id="circleB"></div>
                             <p>Dissertações</p>
                         </div>
 
-                        <div class="col-md-4 col-xs-6 circle-box">
+                        <div class="col-md-4 col-xs-6 col-sm-12 circle-box">
                             <div id="circleC"></div>
                             <p>Iniciação Científica</p>
                         </div>
@@ -309,7 +337,7 @@
 
         <div id="services-area">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-center align-items-start">
                     <div class="col-12">
                         <h3 class="main-title">Projetos</h3>
                     </div>
@@ -318,6 +346,7 @@
                         // args
                         $my_args_projects = array(
                             'post_type' => 'projetos',
+                            'posts_per_page' => -1
                         );
 
                         // query
@@ -330,10 +359,22 @@
                         $my_query_projects->the_post(); 
                     ?>
 
+                    <?php
+                        $link = get_post_meta( get_the_ID(), 'bs4wp_project_link', true );
+                    ?>
+
                     <div class="col-md-4 service-box">
                         <?php the_post_thumbnail('post-thumbnail') ?>
-                        <h4> <?php the_title(); ?> </h4>
-                        <p> <?php echo get_post_meta( get_the_ID(), 'bs4wp_project_description', true ); ?> </p>
+                        <h4 class="proccess-number"> <?php the_title(); ?> </h4>
+                        <p> <?php echo get_post_meta( get_the_ID(), 'bs4wp_project_title', true ); ?> </p>
+
+                        <p> 
+                            <?php
+                                if (strlen($link) != 0) {
+                                    echo "<a href=\"".$link."\" target=\"blank\">Mais informações</a>";
+                                }
+                            ?>
+                        </p>                       
                     </div>
 
                     <?php endwhile; endif; ?>
@@ -345,7 +386,7 @@
 
         <div id="services-area">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="col-12">
                         <h3 class="main-title">Parceiros</h3>
                     </div>
@@ -353,7 +394,8 @@
                     <?php 
                         // args
                         $my_args_partners = array(
-                        'post_type' => 'parceiros'
+                        'post_type' => 'parceiros',
+                        'posts_per_page' => -1
                         );
 
                         // query
@@ -366,8 +408,8 @@
                         $my_query_partners->the_post(); 
                     ?>
 
-                    <div class="col-md-4 service-box">
-                        <a href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_partners_link', true ); ?>" target="_blank"> <?php the_post_thumbnail('post-thumbnail'); ?> </a>
+                    <div class="col-md-4 col-6 service-box">
+                        <a href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_partners_link', true ); ?>" target="_blank"> <?php the_post_thumbnail('post-thumbnail', array('class' => 'partners-financiers-img')); ?> </a>
                     </div>
 
                     <?php endwhile; endif; ?>
@@ -378,9 +420,9 @@
             </div>
         </div>
 
-        <div id="services-area">
+        <div class="financiers-area">
             <div class="container">
-                <div class="row">
+                <div class="row d-flex justify-content-center">
                     <div class="col-12">
                         <h3 class="main-title">Financiamento</h3>
                     </div>
@@ -388,7 +430,8 @@
                     <?php 
                         // args
                         $my_args_financiers = array(
-                        'post_type' => 'financiamento'
+                        'post_type' => 'financiamento',
+                        'posts_per_page' => -1
                         );
 
                         // query
@@ -401,8 +444,8 @@
                         $my_query_financiers->the_post(); 
                     ?>
 
-                    <div class="col-md-6 service-box">
-                        <a href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_financiers_link', true ); ?>" target="_blank"> <?php the_post_thumbnail('post-thumbnail'); ?> </a>
+                    <div class="col-md-6 col-6 service-box">
+                        <a href="<?php echo get_post_meta( get_the_ID(), 'bs4wp_financier_link', true ); ?>" target="_blank"> <?php the_post_thumbnail('post-thumbnail', array('class' => 'partners-financiers-img')); ?> </a>
                     </div>
 
                     <?php endwhile; endif; ?>

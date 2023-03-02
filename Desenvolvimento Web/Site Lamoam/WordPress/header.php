@@ -10,9 +10,9 @@
 
     <link rel="stylesheet" href="<?php bloginfo('template_url'); ?>/css/original_style.css">
 
-    <!-- <link rel="stylesheet" href="<?php //bloginfo('template_url'); ?>/css/responsive_mobile.css">
+    <link rel="stylesheet" media="screen and (max-width: 1015px) and (min-width: 501px)" href="<?php bloginfo('template_url'); ?>/css/responsive_tablet.css">
 
-    <link rel="stylesheet" href="<?php //bloginfo('template_url'); ?>/css/responsive_tablet.css"> -->
+    <link rel="stylesheet" media="screen and (max-width: 500px)" href="<?php bloginfo('template_url'); ?>/css/responsive_mobile.css">
 
     <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>">
 
@@ -31,6 +31,7 @@
         if (strcmp($status, "Todos") == 0) {
           $posts = get_posts(array(
             'post_type'     => 'orientações',
+            'numberposts' => -1,
             'meta_query' => array(                               
               array(
                 'key'   => 'bs4wp_guideline_type',
@@ -40,6 +41,7 @@
         } else {
           $posts = get_posts(array(
             'post_type'     => 'orientações',
+            'numberposts' => -1,
             'meta_query' => array(
               array(
                 'key'   => 'bs4wp_guideline_status',
@@ -85,37 +87,42 @@
       echo $contadores;                              
     ?>
   </head>
+
   <body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <picture>
+            <source media='(max-width: 1015px)' srcset="<?php echo get_stylesheet_directory_uri(). '/img/uec2.png' ?>">
+            <source media='(min-width: 1016px)' srcset="<?php echo get_stylesheet_directory_uri(). '/img/hdcagency_logo.svg' ?>">
+            <img id="logo" src="<?php echo get_stylesheet_directory_uri(). '/img/hdcagency_logo.svg' ?>" alt="Logo Lamoam">
+          </picture>
+        </a>
 
-  <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      <img src="<?php echo get_stylesheet_directory_uri(). '/img/hdcagency_logo.svg' ?>" alt="Logo Lamoam" width="190px">
-    </a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-links" aria-controls="navbar-links" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
-    </button>
+        </button>
 
-    <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
-      <div class="navbar-nav">
-      <?php
-        (isset($_GET['p'])) ? $pagina = $_GET['p'] : $pagina = 'home';
-        if (file_exists('page_'.$pagina.'.php') && $pagina == 'alunos' || $pagina == 'egressos'):
-          $href = '?param=';
-        else:
-          $href = '#?param=';
-        endif;
+        <div class="collapse navbar-collapse justify-content-end" id="navbar-links">
+          <div class="navbar-nav">
+          <?php
+            (isset($_GET['p'])) ? $pagina = $_GET['p'] : $pagina = 'home';
+            if ((strcmp($pagina, "alunos") == 0) || (strcmp($pagina, "egressos") == 0)):
+              $href = '?param=';
+            else:
+              $href = '#?param=';
+            endif;
 
-        echo "<a class='nav-item nav-link' id='home-menu' href='".$href."home'>Início</a>";
-        echo "<a class='nav-item nav-link' id='about-menu' href='".$href."about'>".get_theme_mod('about_title', 'O LAMOAM')."</a>";
-        echo "<a class='nav-item nav-link' id='services-menu' href='".$href."services'>".get_theme_mod('research_areas_title', 'Áreas de Pesquisa')."</a>";
-        echo "<a class='nav-item nav-link' id='team-menu' href='".$href."team'>".get_theme_mod('team_title', 'Professores')."</a>";
-        echo "<a class='nav-item nav-link' id='prod-menu' href='".$href."prod'>Orientações</a>";
-        echo "<a class='nav-item nav-link' id='contact-menu' href='".$href."contact'>Onde Estamos</a>";
-      ?>
+            echo "<a class='nav-item nav-link' id='home-menu' href='".$href."home'>Início</a>";
+            echo "<a class='nav-item nav-link' id='about-menu' href='".$href."about'>".get_theme_mod('about_title', 'O LAMOAM')."</a>";
+            echo "<a class='nav-item nav-link' id='services-menu' href='".$href."services'>".get_theme_mod('research_areas_title', 'Áreas de Pesquisa')."</a>";
+            echo "<a class='nav-item nav-link' id='team-menu' href='".$href."team'>".get_theme_mod('team_title', 'Professores')."</a>";
+            echo "<a class='nav-item nav-link' id='prod-menu' href='".$href."prod'>".get_theme_mod('guidelines_title', 'Orientações')."</a>";
+            echo "<a class='nav-item nav-link' id='contact-menu' href='".$href."contact'>".get_theme_mod('location_title', 'Onde Estamos')."</a>";
+          ?>
+          </div>
+        </div>
+            <a class="nav-item nav-link" href="https://www.unicamp.br/unicamp/" target="_blank"><img id="LogoU" src="<?php echo get_stylesheet_directory_uri(). '/img/UNIC_logo.png' ?>" alt="Unicamp"></a>
       </div>
-    </div>
-        <a class="nav-item nav-link" href="https://www.unicamp.br/unicamp/" target="_blank"><img id="LogoU" src="<?php echo get_stylesheet_directory_uri(). '/img/UNIC_logo.png' ?>" alt="Unicamp"></a>
-  </div>
-</nav>
+    </nav>
+    
