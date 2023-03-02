@@ -1,0 +1,56 @@
+#login-area .login-bg {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/storage/img/background.png");
+    background-repeat: no-repeat;
+}
+
+#login-area .login-form-bg {
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 500px;
+}
+
+#login-area .login-form-logo {
+    background-color: white;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    height: 80px;
+    width: 200px;
+    top: -20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login-area .login-form-logo img {
+    position: relative;
+    width: 150px;
+}
+
+#login-area .form-links {
+    color: var(--main-color);
+}
+
+#login-area button {
+    margin-bottom: 20px;
+}
+
+.toast-header {
+    background-color: var(--secondary-color);
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+.toast-body {
+    color: var(--main-color);
+}
+
+#excursion-bg{
+    height: 100vh;
+    width:100vw;
+    margin-top: 150px;
+}

@@ -1,0 +1,61 @@
+#perfil-area {
+    margin-top: 101px;
+    padding: 30px;
+}
+
+#perfil-area .container {
+    border-radius: 10px;
+    background-color: var(--main-color);
+    padding: 20px;
+    flex-direction: row;
+    display: flex;
+    min-height: 500px;
+}
+
+#perfil-area .nav-link {
+    border-bottom: 1px solid;
+    border-color: var(--main-color);
+}
+
+#perfil-area .nav-bg {
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    width: 16.66%;
+}
+
+#perfil-area .dashboard {
+    border-radius: 10px;
+    background-color: var(--secondary-color);
+    width: 83.34%;
+    padding: 8px 16px;
+}
+
+.nav-link, .nav-link:hover {
+    color: black;
+    text-decoration: none;
+}
+
+#btnAltera, #btnAltera:hover {
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+
+#excursion-bg{
+    margin-top: 150px;
+}
+
+#image-container img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+}
+
+#excursion-bg #info-container i{
+    color: var(--secondary-color);
+}
+
+#excursion-bg .btn {
+    background-color: var(--secondary-color);
+    color: black;
+    border: 0;
+}
