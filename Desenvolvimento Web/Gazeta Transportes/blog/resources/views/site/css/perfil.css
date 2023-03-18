@@ -27,6 +27,7 @@
     border-radius: 10px;
     background-color: var(--secondary-color);
     width: 83.34%;
+    height: 600px;
     padding: 8px 16px;
 }
 
@@ -54,8 +55,34 @@
     color: var(--secondary-color);
 }
 
-#excursion-bg .btn {
+#excursion-submit {
     background-color: var(--secondary-color);
     color: black;
     border: 0;
+}
+
+#excursion-cancel {
+    background-color: red;
+    color: white;
+    border: 0;
+}
+
+thead, tbody, tfoot, tr, td, th {
+    border-color: black;
+}
+
+#perfil-area .btn {
+    background-color: var(--main-color);
+    color: white;
+    border: 0;
+}
+
+.content {
+    overflow-y: scroll;
+    height: 500px;
+}
+
+#perfil-area .btn {
+    height: fit-content;
+    margin-left: 5px;
 }

@@ -18,4 +18,9 @@ class City extends Model
     {
         return $this->belongsToMany(Excursion::class, 'cities_excursions');
     }
+
+    public function stops()
+    {
+        return $this->belongsToMany(Stop::class, 'cities_stops');
+    }
 }

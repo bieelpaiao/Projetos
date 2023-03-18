@@ -1,3 +1,6 @@
+const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+
 const toastLiveExample = document.getElementById('liveToast')
 if (toastLiveExample) {
 
@@ -130,9 +133,6 @@ function alterarDados() {
     let submitBtn = document.getElementById('submitBtnAltera');
 
     if(btn.classList.contains('desativado')) {
-        // document.getElementById('nome').disabled = false;
-        // document.getElementById('cpf').disabled = false;
-        // document.getElementById('nascimento').disabled = false;
         document.getElementById('telefone').disabled = false;
         document.getElementById('email').disabled = false;
         document.getElementById('email_confirmation').disabled = false;
@@ -144,15 +144,10 @@ function alterarDados() {
         document.getElementById('cidade').disabled = false;
         document.getElementById('complemento').disabled = false;
         document.getElementById('referencia').disabled = false;
-        // document.getElementById('senha').disabled = false;
-        // document.getElementById('senha_confirmation').disabled = false;
         btn.classList.add('ativado');
         btn.classList.remove('desativado');
         submitBtn.classList.remove('d-none');
     } else if(btn.classList.contains('ativado')) {
-        // document.getElementById('nome').disabled = true;
-        // document.getElementById('cpf').disabled = true;
-        // document.getElementById('nascimento').disabled = true;
         document.getElementById('telefone').disabled = true;
         document.getElementById('email').disabled = true;
         document.getElementById('email_confirmation').disabled = true;
@@ -164,50 +159,31 @@ function alterarDados() {
         document.getElementById('cidade').disabled = true;
         document.getElementById('complemento').disabled = true;
         document.getElementById('referencia').disabled = true;
-        // document.getElementById('senha').disabled = true;
-        // document.getElementById('senha_confirmation').disabled = true;
         btn.classList.add('desativado');
         btn.classList.remove('ativado');
         submitBtn.classList.add('d-none');
     }
 }
 
-// scroll para as seções
-
-let navBtn = $('.nav-item');
-
-let bannerSection = $('#mainSlider');
-let aboutSection = $('#about-area');
-let servicesSection = $('#excursions-area');
-let teamSection = $('#contact-title');
-let prodSection = $('#loading-area')
-let contactSection = $('#location-area');
-
-let scrollTo = '';
-
-$(navBtn).click(function() {
-
-  let btnId = $(this).attr('id');
-
-  if(btnId == 'about-menu') {
-    scrollTo = aboutSection;
-  } else if(btnId == 'services-menu') {
-    scrollTo = servicesSection;
-  } else if(btnId == 'team-menu') {
-    scrollTo = teamSection;
-  } else if(btnId == 'prod-menu') {
-    scrollTo = prodSection;
-  } else if(btnId == 'contact-menu') {
-    scrollTo = contactSection;
-  } else {
-    scrollTo = bannerSection;
-  }
-
-  $([document.documentElement, document.body]).animate({
-      scrollTop: $(scrollTo).offset().top - 70
-  }, 1000);
+$(document).ready(function() {
+    $("#cidade").change(function(){
+        const url = $("#dados").attr("data-funcoes-url");
+        cidadeId = $(this).val();
+        $.ajax({
+            url: url,
+            data: {
+                'cidade': cidadeId,
+            },
+            success: function(data) {
+                $("#ponto").html(data);
+            }
+        });
+    });
 });
 
+$(document).ready(function() {
+    $('select').selectpicker();
+});
 
 
 

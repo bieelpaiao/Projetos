@@ -28,7 +28,13 @@ Route::get('/cadastro', [AuthController::class, 'showSignupForm'])->name('perfil
 Route::post('/cadastro', [ClientsController::class, 'store']);
 Route::post('/alteracao', [ClientsController::class, 'update']);
 Route::get('/excursions/{id}', [ClientsController::class, 'showExcursionDetails']);
+Route::get('/teste', function () {
+    return view('teste');
+});
+Route::get('/load_funcoes', [ClientsController::class, 'loadFuncoes'])->name('load_funcoes');
+Route::post('/load_funcoes', [ClientsController::class, 'loadFuncoes'])->name('load_funcoes22');
 Route::post('/excursions/join/{id}', [ClientsController::class, 'joinExcursion'])->middleware('auth:admin');
+Route::delete('/excursions/leave/{id}', [ClientsController::class, 'leaveExcursion'])->middleware('auth:admin');
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });

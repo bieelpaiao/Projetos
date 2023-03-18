@@ -36,7 +36,7 @@ class StoreUserRequest extends FormRequest
             'bairro' => 'required',
             'estado' => 'required|uf',
             'cidade' => 'required',
-            'password' => 'required|confirmed',
+            'password' => 'required|confirmed'
         ];
     }
 
