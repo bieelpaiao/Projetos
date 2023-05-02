@@ -26,6 +26,8 @@ class AuthController extends Controller
 
             $excursions = $user->excursions()->get();
 
+//            dd($excursions);
+
             return view('admin.dashboard-excursions', ['excursions' => $excursions]);
         }
 
@@ -63,5 +65,20 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return redirect('/');
+    }
+
+    public function showChangePasswordForm()
+    {
+        return view('admin.change-password');
+    }
+
+    public function showChangeEmailForm()
+    {
+        return view('admin.change-email');
+    }
+
+    public function showForgotPasswordForm()
+    {
+        return view('admin.forgot-password');
     }
 }

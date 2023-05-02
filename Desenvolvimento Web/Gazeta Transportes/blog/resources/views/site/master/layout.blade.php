@@ -49,12 +49,11 @@
                                     <a class="nav-link dropdown-toggle btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="admin">{{ Auth::guard('admin')->User()->nome }}</a>
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="{{ route('perfil') }}">Minha Conta</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('perfil') }}">Minhas excursões</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('perfil') }}">Alterar minha senha</a></li>
-                                        <li><a class="dropdown-item" href="{{ route('perfil') }}">Alterar meu e-mail</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('perfil.excursoes') }}">Minhas excursões</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('perfil.change.password') }}">Alterar minha senha</a></li>
+                                        <li><a class="dropdown-item" href="{{ route('perfil.change.email') }}">Alterar meu e-mail</a></li>
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="{{ route('perfil.logout') }}">Sair</a></li>
-
                                     </ul>
                                 </li>
                             @else

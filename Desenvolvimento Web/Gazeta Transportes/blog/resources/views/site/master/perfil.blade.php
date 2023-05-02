@@ -6,8 +6,8 @@
             <nav class="nav flex-column">
                 <a class="nav-link" aria-current="page" href="{{ route('perfil') }}">Minha Conta</a>
                 <a class="nav-link" href="{{ route('perfil.excursoes') }}">Minhas excursões</a>
-                <a class="nav-link" href="{{ route('perfil.excursoes') }}">Alterar minha senha</a>
-                <a class="nav-link" href="{{ route('perfil.excursoes') }}">Alterar meu e-mail</a>
+                <a class="nav-link" href="{{ route('perfil.change.password') }}">Alterar minha senha</a>
+                <a class="nav-link" href="{{ route('perfil.change.email') }}">Alterar meu e-mail</a>
                 <a class="nav-link" href="{{ route('perfil.logout') }}">Sair</a>
             </nav>
         </div>

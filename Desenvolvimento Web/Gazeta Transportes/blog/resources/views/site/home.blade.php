@@ -119,7 +119,6 @@
                                         <form action="/excursions/join" method="POST">
                                             @csrf
                                             <a href="/excursions/{{ $excursion->id }}" class="btn btn-card">Saiba mais!</a>
-                                            <a href="/excursions/join" class="btn btn-card" onclick="event.preventDefault(); this.closest('form').submit();">Me inscrever!</a>
                                         </form>
                                     </div>
                                 </div>
@@ -145,67 +144,69 @@
             <section id="contact-content">
                 <div class="container-fluid text-center">
                     <div class="row align-items-center px-0 px-md-5">
-                        <div class="col-md-6 p-5">
-                            <a href="https://api.whatsapp.com/send/?phone=5518996128035&text=Ol%C3%A1!&type=phone_number&app_absent=0" target="blank">
-                                <div class="row align-items-center rounded-3 p-2" id="contact-card">
-                                    <div class="col-md-2">
-                                        <i class="fa-brands fa-whatsapp"></i>
-                                    </div>
+                        <form class="row align-items-center ps-5 pe-5" action="{{ route("form") }}" method="POST">
+                            @csrf
+                            <div class="col-md-6 p-5">
+                                <div class="dates-title-bg">
+                                    <span>Escolha o dia da viagem</span>
+                                </div>
+                                <div class="dates-bg">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="ida" class="form-label">Ida <span class="required">*</span></label>
+                                            <input type="date" class="form-control @error('ida') is-invalid @enderror" id="ida" name="ida">
+                                        </div>
 
-                                    <div class="col-md-10">
-                                        <p id="card-text">Clique aqui e nos envie uma mensagem via WhatsApp!</p>
+                                        <div class="col-md-4">
+                                            <label for="volta" class="form-label">Volta</label>
+                                            <input type="date" class="form-control" id="volta" name="volta">
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <label for="pessoas" class="form-label">Pessoas <span class="required">*</span></label>
+                                            <input type="number" class="form-control @error('pessoas') is-invalid @enderror" id="pessoas" name="pessoas">
+                                        </div>
                                     </div>
                                 </div>
-                            </a>
+                                <div class="text-center my-3" id="social-media">
+                                    <p>Siga-nos nas nossas redes sociais</p>
+                                </div>
 
-                            <a href="mailto:kleber@infoworld.net.br" target="blank">
-                                <div class="row align-items-center rounded-3 p-2 mt-3" id="contact-card">
-                                    <div class="col-md-2">
-                                        <i class="fa-regular fa-envelope"></i>
-                                    </div>
-
-                                    <div class="col-md-10">
-                                        <p id="card-text">Clique aqui e nos envie uma mensagem via e-mail!</p>
+                                <div class="row align-items-center rounded-3 p-2 mt-3" id="contact-medias">
+                                    <div class="col">
+                                        <a href="https://www.facebook.com/profile.php?id=100057513096662&mibextid=ZbWKwL" target="blank"> <i class="fa-brands fa-facebook mx-3"></i> </a>
+                                        <a href="https://instagram.com/transportes.gazeta?igshid=YmMyMTA2M2Y=" target="blank"> <i class="fa-brands fa-instagram mx-3"></i> </a>
                                     </div>
                                 </div>
-                            </a>
-
-                            <div class="text-center my-3" id="social-media">
-                                <p>Siga-nos em nossas redes sociais</p>
                             </div>
 
-                            <div class="row align-items-center rounded-3 p-2 mt-3" id="contact-medias">
-                                <div class="col">
-                                    <a href="" target="blank"> <i class="fa-brands fa-facebook mx-3"></i> </a>
-                                    <a href="" target="blank"> <i class="fa-brands fa-instagram mx-3"></i> </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6 m-0 px-md-5 px-0">
-                            <div class="contact-form-bg p-3">
-                                <form class="row g-3">
+                            <div class="col-md-6 m-0 px-5">
+                                <div class="contact-form-bg p-3">
                                     <div class="col-md-12 text-start">
-                                        <label for="inputName" class="form-label">Nome Completo</label>
-                                        <input type="text" class="form-control" id="inputName">
+                                        <label for="nome" class="form-label">Nome Completo <span class="required">*</span></label>
+                                        <input type="text" class="form-control @error('nome') is-invalid @enderror" id="nome" name="nome">
                                     </div>
 
                                     <div class="col-md-12 text-start">
-                                        <label for="inputEmail" class="form-label">E-mail</label>
-                                        <input type="text" class="form-control" id="inputEmail">
+                                        <label for="email" class="form-label">E-mail <span class="required">*</span></label>
+                                        <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
                                     </div>
 
                                     <div class="col-md-12 text-start">
-                                        <label for="inputMessage" class="form-label">Mensagem</label>
-                                        <textarea class="form-control" id="inputMessage"></textarea>
+                                        <label for="mensagem" class="form-label">Mensagem <span class="required">*</span></label>
+                                        <textarea class="form-control @error('mensagem') is-invalid @enderror" id="mensagem" name="mensagem"></textarea>
+                                    </div>
+
+                                    <div class="col-6 text-start my-2">
+                                        <a>(<span class="required">*</span>): Campos obrigatórios</a>
                                     </div>
 
                                     <div class="col-12">
                                         <button type="submit" class="btn btn-primary">ENVIAR</button>
                                     </div>
-                                </form>
+                                </div>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </section>

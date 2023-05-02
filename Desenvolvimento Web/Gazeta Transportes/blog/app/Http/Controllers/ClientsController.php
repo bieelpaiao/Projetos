@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ContactRequest;
 use App\Http\Requests\JoinExcursionRequest;
 use App\Http\Requests\StoreUserRequest;
+use Couchbase\RequestTracer;
 use Illuminate\Routing\Controller;
 use App\Models\Client;
 use App\Models\Excursion;
 use App\Models\City;
 use App\Models\Stop;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -118,5 +121,76 @@ class ClientsController extends Controller
 
         return redirect('/minhas-excursoes')->with('sucesso', 'Seu cancelamento está confirmado na excursão ' . $excursion->nome);
 
+    }
+
+    public function gerarLink(ContactRequest $request)
+    {
+        $msg = $request->mensagem;
+        $ida = $request->ida;
+        $volta = $request->volta;
+        $cliente = $request->nome;
+        $email = $request->email;
+        $pessoas = $request->pessoas;
+
+        $encoded_msg = str_replace("+", "%20", urlencode($msg));
+
+        if ($volta) {
+            $datas_msg = "*[RESERVA EXCURSÃO | GAZETA TRANSPORTES 🚌]* \n👤 *CLIENTE:* ".$cliente."\n📧 *E-MAIL:* ".$email." \n📆 *IDA:* ".$ida."  \n📆 *VOLTA:* ".$volta."  \n📆 *NÚMERO DE PESSOAS:* ".$pessoas."\n\n📝 *MENSAGEM:* ";
+        } else {
+            $datas_msg = "*[RESERVA EXCURSÃO | GAZETA TRANSPORTES 🚌]* \n👤 *CLIENTE:* ".$cliente."\n📧 *E-MAIL:* ".$email." \n📆 *IDA:* ".$ida."  \n📆 *NÚMERO DE PESSOAS:* ".$pessoas."\n\n📝 *MENSAGEM:* ";
+        }
+
+        $original = array("%40, @");
+        $substituir = array("+, %20");
+
+        $encoded_datas_msg = str_replace($original, $substituir, urlencode($datas_msg));
+
+        $href = "https://api.whatsapp.com/send/?phone=5518996989578&text=".$encoded_datas_msg.$encoded_msg;
+
+        return redirect($href);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        $request->validate([
+            'password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ]);
+
+        $userId = Auth::guard('admin')->User()->id;
+
+        $user = Client::where('id', $userId)->first();
+
+        if (!Hash::check($request->password, $user->password)) {
+            return back()->withErrors(['password' => 'Senha atual incorreta.'])->withInput();
+        }
+
+        $user->update([
+            'password' => Hash::make($request->new_password),
+        ]);
+
+        return redirect()->route('perfil')->with('sucesso', 'Senha atualizada com sucesso!');
+    }
+
+    public function updateEmail(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'new_email' => 'required|confirmed',
+        ]);
+
+        $userId = Auth::guard('admin')->User()->id;
+
+        $user = Client::where('id', $userId)->first();
+
+        if ($request->email != $user->email) {
+            return back()->withErrors(['email' => 'E-mail atual incorreto.'])->withInput();
+        }
+
+        $user->update([
+            'email' => $request->new_email
+        ]);
+
+        return redirect()->route('perfil')->with('sucesso', 'E-mail atualizado com sucesso!');
     }
 }

@@ -24,6 +24,6 @@ class Excursion extends Model
     }
 
     public function clients() {
-        return $this->belongsToMany(Client::class);
+        return $this->belongsToMany(Client::class, 'client_excursion');
     }
 }

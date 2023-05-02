@@ -32,7 +32,7 @@
                             </div>
 
                             <div class="col-6 text-start my-2">
-                                <a class="form-links text-decoration-none fw-semibold" href="">Esqueci minha senha</a>
+                                <a class="form-links text-decoration-none fw-semibold" href="{{ route('perfil.forgot.password') }}">Esqueci minha senha</a>
                             </div>
 
                             <div class="col-6 text-end my-2">

@@ -141,6 +141,23 @@ section {
     height: 500px;
 }
 
+
+.dates-bg {
+    background-color: var(--secondary-color);
+    padding: 15px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.dates-title-bg {
+    background-color: var(--main-color);
+    padding: 3px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+
 #bg-contact-title {
     background-color: var(--secondary-color);
     padding: 10px;
@@ -188,7 +205,7 @@ section {
     height: 100%;
 }
 
-#inputMessage {
+#mensagem {
     height: 100px;
 }
 
@@ -200,7 +217,6 @@ section {
 .btn-card, .btn-card:hover {
     background-color: var(--secondary-color);
     color: var(--main-color);
-    margin-bottom: 10px;
 }
 
 #copy-area {
